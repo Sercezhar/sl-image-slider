@@ -1,1 +1,1 @@
-# sl-image-slider
+# Image Slider
