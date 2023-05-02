@@ -1,0 +1,26 @@
+.indicators {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 16px;
+  display: flex;
+  z-index: 2;
+}
+
+.indicator {
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: opacity, scale 250ms cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+.indicator:not(:last-child) {
+  margin-right: 10px;
+}
+
+.indicator.current {
+  opacity: 1;
+  scale: 1.4;
+}

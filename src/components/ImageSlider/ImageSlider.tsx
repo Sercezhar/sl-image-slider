@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './ImageSlider.module.css';
+import Indicators from './Indicators';
 import MainPhoto from './MainPhoto';
 import Navigation from './Navigation';
 import { Photo } from './types';
@@ -31,6 +32,11 @@ function ImageSlider({ photos }: ImageSliderProps) {
               onNext={() => setCurrentPhotoIndex(prev => prev + 1)}
               isPrevDisabled={!prevPhoto}
               isNextDisabled={!nextPhoto}
+            />
+
+            <Indicators
+              photosLength={photos.length}
+              currentPhotoIndex={currentPhotoIndex}
             />
           </div>
         </div>
