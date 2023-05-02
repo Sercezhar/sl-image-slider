@@ -1,0 +1,37 @@
+.buttonPrev,
+.buttonNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.buttonPrev:hover .arrowIcon,
+.buttonNext:hover .arrowIcon {
+  scale: 1.2;
+}
+
+.buttonPrev:disabled,
+.buttonNext:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.buttonPrev {
+  left: 1em;
+}
+
+.buttonNext {
+  right: 1em;
+}
+
+.arrowIcon {
+  width: 42px;
+  height: 42px;
+  fill: #fff;
+  transition: scale 200ms ease-in-out;
+}
