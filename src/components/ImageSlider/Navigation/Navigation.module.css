@@ -1,5 +1,4 @@
-.buttonPrev,
-.buttonNext {
+.button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -10,26 +9,24 @@
   z-index: 2;
 }
 
-.buttonPrev:hover .arrowIcon,
-.buttonNext:hover .arrowIcon {
+.button:hover .icon {
   scale: 1.2;
 }
 
-.buttonPrev:disabled,
-.buttonNext:disabled {
+.button:disabled {
   opacity: 0.5;
   pointer-events: none;
 }
 
-.buttonPrev {
-  left: 1em;
+.prev {
+  left: 0;
 }
 
-.buttonNext {
-  right: 1em;
+.next {
+  right: 0;
 }
 
-.arrowIcon {
+.icon {
   width: 42px;
   height: 42px;
   fill: #fff;

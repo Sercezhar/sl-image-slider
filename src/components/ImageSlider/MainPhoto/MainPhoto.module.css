@@ -8,9 +8,7 @@
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
-.current,
-.prev,
-.next {
+.photo {
   position: absolute;
   top: 0;
   left: 0;

@@ -1,5 +1,8 @@
+import classNames from 'classnames/bind';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import styles from './Navigation.module.css';
+
+const cx = classNames.bind(styles);
 
 interface NavigationProps {
   onPrev: () => void;
@@ -14,24 +17,27 @@ function Navigation({
   isPrevDisabled,
   isNextDisabled,
 }: NavigationProps) {
+  const classButtonPrev = cx('button', 'prev');
+  const classButtonNext = cx('button', 'next');
+
   return (
     <div>
       <button
-        className={styles.buttonPrev}
+        className={classButtonPrev}
         type="button"
         disabled={isPrevDisabled}
         onClick={onPrev}
       >
-        <IoIosArrowBack className={styles.arrowIcon} />
+        <IoIosArrowBack className={styles.icon} />
       </button>
 
       <button
-        className={styles.buttonNext}
+        className={classButtonNext}
         type="button"
         disabled={isNextDisabled}
         onClick={onNext}
       >
-        <IoIosArrowForward className={styles.arrowIcon} />
+        <IoIosArrowForward className={styles.icon} />
       </button>
     </div>
   );
