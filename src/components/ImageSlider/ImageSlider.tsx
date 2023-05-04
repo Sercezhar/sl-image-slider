@@ -19,21 +19,19 @@ function ImageSlider({ photos }: ImageSliderProps) {
     <>
       {photos && (
         <div className={styles.slider}>
-          <div className={styles.container}>
-            <MainPhoto photos={photos} currentPhotoIndex={currentPhotoIndex} />
+          <MainPhoto photos={photos} currentPhotoIndex={currentPhotoIndex} />
 
-            <Navigation
-              onPrev={() => setCurrentPhotoIndex(prev => prev - 1)}
-              onNext={() => setCurrentPhotoIndex(prev => prev + 1)}
-              isPrevDisabled={!prevPhoto}
-              isNextDisabled={!nextPhoto}
-            />
+          <Navigation
+            onPrev={() => setCurrentPhotoIndex(prev => prev - 1)}
+            onNext={() => setCurrentPhotoIndex(prev => prev + 1)}
+            isPrevDisabled={!prevPhoto}
+            isNextDisabled={!nextPhoto}
+          />
 
-            <Indicators
-              photosLength={photos.length}
-              currentPhotoIndex={currentPhotoIndex}
-            />
-          </div>
+          <Indicators
+            photosLength={photos.length}
+            currentPhotoIndex={currentPhotoIndex}
+          />
         </div>
       )}
     </>
