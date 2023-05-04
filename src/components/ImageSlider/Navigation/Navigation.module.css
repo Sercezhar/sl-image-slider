@@ -30,5 +30,5 @@
   width: 42px;
   height: 42px;
   fill: #fff;
-  transition: scale 200ms ease-in-out;
+  transition: scale 200ms cubic-bezier(0.57, 0.21, 0.69, 1.25);
 }
