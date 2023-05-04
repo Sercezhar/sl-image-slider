@@ -9,7 +9,7 @@ interface IndicatorsProps {
 }
 
 function Indicators({ photosLength, currentPhotoIndex }: IndicatorsProps) {
-  const indicatorsArr = [...Array(photosLength)].map((_el, index) => index);
+  const indicatorsArr: undefined[] = Array.from({ length: photosLength });
 
   const classIndicator = (index: number) =>
     cx({
@@ -20,8 +20,8 @@ function Indicators({ photosLength, currentPhotoIndex }: IndicatorsProps) {
   return (
     <ul className={styles.indicators}>
       {indicatorsArr &&
-        indicatorsArr.map((item, index) => (
-          <li className={classIndicator(index)} key={item}></li>
+        indicatorsArr.map((_item, index) => (
+          <li key={index} className={classIndicator(index)}></li>
         ))}
     </ul>
   );
