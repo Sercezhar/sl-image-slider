@@ -15,10 +15,11 @@
   height: 100%;
   object-fit: cover;
   border-radius: inherit;
+  opacity: 0;
+  transition: opacity 350ms cubic-bezier(0.57, 0.21, 0.69, 1.25);
   z-index: 2;
 }
 
-.prev,
-.next {
-  z-index: 1;
+.photo[data-current='true'] {
+  opacity: 1;
 }

@@ -12,7 +12,6 @@ interface ImageSliderProps {
 function ImageSlider({ photos }: ImageSliderProps) {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
-  const currentPhoto = photos[currentPhotoIndex];
   const prevPhoto = photos[currentPhotoIndex - 1];
   const nextPhoto = photos[currentPhotoIndex + 1];
 
@@ -21,11 +20,7 @@ function ImageSlider({ photos }: ImageSliderProps) {
       {photos && (
         <div className={styles.slider}>
           <div className={styles.container}>
-            <MainPhoto
-              currentPhoto={currentPhoto}
-              prevPhoto={prevPhoto}
-              nextPhoto={nextPhoto}
-            />
+            <MainPhoto photos={photos} currentPhotoIndex={currentPhotoIndex} />
 
             <Navigation
               onPrev={() => setCurrentPhotoIndex(prev => prev - 1)}

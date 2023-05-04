@@ -1,42 +1,23 @@
-import classNames from 'classnames/bind';
 import { Photo } from '../types';
 import styles from './MainPhoto.module.css';
 
-const cx = classNames.bind(styles);
-
 interface MainPhotoProps {
-  currentPhoto: Photo;
-  prevPhoto?: Photo;
-  nextPhoto?: Photo;
+  photos: Photo[];
+  currentPhotoIndex: number;
 }
 
-function MainPhoto({ currentPhoto, prevPhoto, nextPhoto }: MainPhotoProps) {
-  const classPrevPhoto = cx('photo', 'prev');
-  const classNextPhoto = cx('photo', 'next');
-
+function MainPhoto({ photos, currentPhotoIndex }: MainPhotoProps) {
   return (
     <div className={styles.mainPhoto}>
-      {prevPhoto && (
+      {photos.map((photo, index) => (
         <img
-          className={classPrevPhoto}
-          src={prevPhoto.src}
-          alt={prevPhoto.description}
+          key={index}
+          className={styles.photo}
+          data-current={index === currentPhotoIndex}
+          src={photo.src}
+          alt={photo.description}
         />
-      )}
-
-      <img
-        className={styles.photo}
-        src={currentPhoto.src}
-        alt={currentPhoto.description}
-      />
-
-      {nextPhoto && (
-        <img
-          className={classNextPhoto}
-          src={nextPhoto.src}
-          alt={nextPhoto.description}
-        />
-      )}
+      ))}
     </div>
   );
 }
