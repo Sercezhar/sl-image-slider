@@ -25,6 +25,7 @@ function Navigation({
       <button
         className={classButtonPrev}
         type="button"
+        aria-label="previous"
         disabled={isPrevDisabled}
         onClick={onPrev}
       >
@@ -34,6 +35,7 @@ function Navigation({
       <button
         className={classButtonNext}
         type="button"
+        aria-label="next"
         disabled={isNextDisabled}
         onClick={onNext}
       >
