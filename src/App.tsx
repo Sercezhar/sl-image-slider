@@ -36,6 +36,21 @@ const photos = [
     src: '/photos/7.jpg',
     description: 'Waterfall surrounded by trees',
   },
+  {
+    id: 8,
+    src: '/photos/8.jpg',
+    description: 'Mountains and their reflection in the lake',
+  },
+  {
+    id: 9,
+    src: '/photos/9.jpg',
+    description: 'Lavender field, sunset',
+  },
+  {
+    id: 10,
+    src: '/photos/10.jpg',
+    description: 'The Tunnel of Love',
+  },
 ];
 
 function App() {
