@@ -10,7 +10,7 @@ interface ImageSliderProps {
 }
 
 function ImageSlider({ photos }: ImageSliderProps) {
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
 
   const prevPhoto = photos[currentPhotoIndex - 1];
   const nextPhoto = photos[currentPhotoIndex + 1];
