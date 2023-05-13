@@ -51,12 +51,12 @@ const imageData = [
     description: 'Some description',
   },
   {
-    id: 1,
+    id: 2,
     src: 'https://example.com/image2.jpg',
     description: 'Some description',
   },
   {
-    id: 1,
+    id: 3,
     src: 'https://example.com/image3.jpg',
     description: 'Some description',
   },
