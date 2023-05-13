@@ -28,7 +28,7 @@ or
 ```
 yarn add classnames react-icons
 ```
-2. Copy the ImageSlider component file to your project's directory.
+2. Copy the ImageSlider component folder to your project's directory.
 
 ## Usage
 
