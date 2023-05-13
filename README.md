@@ -1,13 +1,20 @@
 # Image Slider
 
+![Application preview](/public/docs/1.gif)
+
 Image Slider is a lightweight and performant React application written in TypeScript. It allows you to display a slideshow of images in an elegant and user-friendly manner. The slider optimizes performance by initially loading only two photos (the first one and the next one) and dynamically uploading the subsequent images while sliding.
 
 ## Features
 
  - Efficient performance by lazy-loading images
+ 
+![Lazy-loading demonstration](/public/docs/2.gif)
+ 
  - Display of indicators as dots for easy navigation
     - Maximum of five visible indicators at a time
     - Indicators have three states: normal, active, and small
+
+![Demonstration of indicators](/public/docs/3.gif)
 
 ## Installation
 
