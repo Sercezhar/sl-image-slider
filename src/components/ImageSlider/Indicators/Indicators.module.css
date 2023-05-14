@@ -3,7 +3,6 @@
   left: 50%;
   bottom: 12px;
   transform: translateX(-50%);
-  max-width: 90px;
   overflow: hidden;
 }
 

@@ -1,6 +1,12 @@
 import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Indicators.module.css';
+import {
+  CONTAINER_WIDTH,
+  INDICATOR_SIZE,
+  MAIN_INDICATORS,
+  VISIBLE_INDICATORS,
+} from './constants';
 
 const cx = classNames.bind(styles);
 
@@ -9,15 +15,48 @@ interface IndicatorsProps {
   currentPhotoIndex: number;
 }
 
-const INDICATOR_SIZE: number = 18;
-
 function Indicators({ photosLength, currentPhotoIndex }: IndicatorsProps) {
   const [prevPhotoIndex, setPrevPhotoIndex] = useState<number>(0);
   const [slideBackIndex, setSlideBackIndex] = useState<number>(0);
-  const [slideForwardIndex, setSlideForwardIndex] = useState<number>(4);
+  const [slideForwardIndex, setSlideForwardIndex] = useState<number>(
+    VISIBLE_INDICATORS - 1
+  );
 
   const indicatorsRef = useRef<HTMLUListElement | null>(null);
   const indicatorsArr: undefined[] = Array.from({ length: photosLength });
+
+  useEffect(() => {
+    const isSlideForward: boolean =
+      currentPhotoIndex === slideForwardIndex &&
+      prevPhotoIndex < currentPhotoIndex &&
+      currentPhotoIndex !== photosLength - 1;
+
+    const isSlideBack: boolean =
+      prevPhotoIndex > currentPhotoIndex &&
+      currentPhotoIndex === slideBackIndex;
+
+    if (isSlideForward) {
+      indicatorsRef.current!.style.transform = `translate3d(-${
+        (currentPhotoIndex - MAIN_INDICATORS) * INDICATOR_SIZE
+      }px, 0, 0)`;
+
+      setSlideBackIndex(currentPhotoIndex - MAIN_INDICATORS);
+      setSlideForwardIndex(currentPhotoIndex + 1);
+    }
+
+    if (isSlideBack) {
+      indicatorsRef.current!.style.transform = `translate3d(-${
+        (currentPhotoIndex - 1) * INDICATOR_SIZE
+      }px, 0, 0)`;
+
+      setSlideBackIndex(currentPhotoIndex - 1);
+      if (currentPhotoIndex > 0) {
+        setSlideForwardIndex(currentPhotoIndex + MAIN_INDICATORS);
+      }
+    }
+
+    setPrevPhotoIndex(currentPhotoIndex);
+  }, [currentPhotoIndex]);
 
   const classIndicator = (index: number) => {
     const isSmall: boolean =
@@ -34,41 +73,11 @@ function Indicators({ photosLength, currentPhotoIndex }: IndicatorsProps) {
     });
   };
 
-  useEffect(() => {
-    const isSlideForward: boolean =
-      currentPhotoIndex === slideForwardIndex &&
-      prevPhotoIndex < currentPhotoIndex &&
-      currentPhotoIndex !== photosLength - 1;
-
-    const isSlideBack: boolean =
-      prevPhotoIndex > currentPhotoIndex &&
-      currentPhotoIndex === slideBackIndex;
-
-    if (isSlideForward) {
-      indicatorsRef.current!.style.transform = `translate3d(-${
-        (currentPhotoIndex - 3) * INDICATOR_SIZE
-      }px, 0, 0)`;
-
-      setSlideBackIndex(currentPhotoIndex - 3);
-      setSlideForwardIndex(currentPhotoIndex + 1);
-    }
-
-    if (isSlideBack) {
-      indicatorsRef.current!.style.transform = `translate3d(-${
-        (currentPhotoIndex - 1) * INDICATOR_SIZE
-      }px, 0, 0)`;
-
-      setSlideBackIndex(currentPhotoIndex - 1);
-      if (currentPhotoIndex > 0) {
-        setSlideForwardIndex(currentPhotoIndex + 3);
-      }
-    }
-
-    setPrevPhotoIndex(currentPhotoIndex);
-  }, [currentPhotoIndex]);
-
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ maxWidth: `${CONTAINER_WIDTH}px` }}
+    >
       <ul ref={indicatorsRef} className={styles.indicators}>
         {indicatorsArr &&
           indicatorsArr.map((_item, index) => (
