@@ -1,36 +1,36 @@
 import { useState } from 'react';
 import styles from './ImageSlider.module.css';
 import Indicators from './Indicators';
-import MainPhoto from './MainPhoto';
+import MainImage from './MainImage';
 import Navigation from './Navigation';
-import { Photo } from './types';
+import { Image } from './types';
 
 interface ImageSliderProps {
-  photos: Photo[];
+  images: Image[];
 }
 
-function ImageSlider({ photos }: ImageSliderProps) {
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
+function ImageSlider({ images }: ImageSliderProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
-  const prevPhoto = photos[currentPhotoIndex - 1];
-  const nextPhoto = photos[currentPhotoIndex + 1];
+  const prevImage = images[currentImageIndex - 1];
+  const nextImage = images[currentImageIndex + 1];
 
   return (
     <>
-      {photos && (
+      {images.length > 0 && (
         <div className={styles.slider}>
-          <MainPhoto photos={photos} currentPhotoIndex={currentPhotoIndex} />
+          <MainImage images={images} currentImageIndex={currentImageIndex} />
 
           <Navigation
-            onPrev={() => setCurrentPhotoIndex(prev => prev - 1)}
-            onNext={() => setCurrentPhotoIndex(prev => prev + 1)}
-            isPrevDisabled={!prevPhoto}
-            isNextDisabled={!nextPhoto}
+            onPrev={() => setCurrentImageIndex(prev => prev - 1)}
+            onNext={() => setCurrentImageIndex(prev => prev + 1)}
+            isPrevDisabled={!prevImage}
+            isNextDisabled={!nextImage}
           />
 
           <Indicators
-            photosLength={photos.length}
-            currentPhotoIndex={currentPhotoIndex}
+            imagesLength={images.length}
+            currentImageIndex={currentImageIndex}
           />
         </div>
       )}

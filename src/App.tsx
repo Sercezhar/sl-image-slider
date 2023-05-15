@@ -56,7 +56,7 @@ const photos = [
 function App() {
   return (
     <div>
-      <ImageSlider photos={photos} />
+      <ImageSlider images={photos} />
     </div>
   );
 }

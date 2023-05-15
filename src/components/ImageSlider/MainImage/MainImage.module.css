@@ -1,4 +1,4 @@
-.mainPhoto {
+.mainImage {
   position: relative;
   width: 100%;
   padding-bottom: 50%;
@@ -8,7 +8,7 @@
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
-.photo {
+.image {
   position: absolute;
   top: 0;
   left: 0;
@@ -20,11 +20,11 @@
   transition: opacity 350ms cubic-bezier(0.57, 0.21, 0.69, 1.25);
 }
 
-.photo[data-current='true'] {
+.image[data-current='true'] {
   display: block;
   opacity: 1;
 }
 
-.photo[data-current='prepared'] {
+.image[data-current='prepared'] {
   display: block;
 }
